@@ -38,7 +38,7 @@ RUN cd ~/git/sferes2/modules/ && git clone https://github.com/sferes2/nn2 && cd 
 RUN cd ~/git/sferes2/exp && git clone https://github.com/doncieux/collectball
 RUN cd ~/git/sferes2/ && ./waf configure && ./waf build --exp=collectball
 
-# Installation et Configuration de Modular_QD
-RUN cd ~/git/sferes2/exp && git clone git clone https://github.com/sferes2/modular_QD.git
+# Installation et Configuration de Modular_QD 
+RUN cd ~/git/sferes2/exp && git clone https://github.com/sferes2/modular_QD.git
 RUN cd ~/git/sferes2/ && ./waf configure  --cpp14=yes --exp modular_QD && ./waf build --exp=modular_QD
 
