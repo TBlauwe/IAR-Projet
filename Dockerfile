@@ -35,10 +35,16 @@ RUN cd ~/git/sferes2/modules/ && git clone https://github.com/sferes2/fastsim &&
 RUN cd ~/git/sferes2/modules/ && git clone https://github.com/sferes2/nn2 && cd .. && echo nn2 >> modules.conf && ./waf configure && ./waf build
 
 # Installation et Configuration de CollectBall
-RUN cd ~/git/sferes2/exp && git clone https://github.com/doncieux/collectball
-RUN cd ~/git/sferes2/ && ./waf configure && ./waf build --exp=collectball
+# RUN cd ~/git/sferes2/exp && git clone https://github.com/doncieux/collectball
+# RUN cd ~/git/sferes2/ && ./waf configure && ./waf build --exp=collectball
 
 # Installation et Configuration de Modular_QD 
 RUN cd ~/git/sferes2/exp && git clone https://github.com/sferes2/modular_QD.git
 RUN cd ~/git/sferes2/ && ./waf configure  --cpp14=yes --exp modular_QD && ./waf build --exp=modular_QD
+
+# Installation et Configuration de CollectBall QD
+RUN cd ~/git/sferes2/exp/modular_QD/scenarii && git clone https://github.com/TBlauwe/IAR-CollectBall-QD.git
+RUN mv IAR-CollectBall-QD/ collectball/
+RUN cd ~/git/sferes2/exp/modular_QD/ && cat scenarii/collectball/add_to_wscript.txt >> wscript
+RUN cd ~/git/sferes2/ && ./waf configure --exp=modular_QD --cpp14=yes && ./waf build --exp=modular_QD 
 
