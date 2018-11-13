@@ -12,4 +12,4 @@
 
 ## Installation :
 
-Voir _Dockerfile_.
+Voir _Dockerfile_
